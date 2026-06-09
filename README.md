@@ -4,6 +4,8 @@ NN Bridge is a companion plugin for the [Notebook Navigator](https://github.com/
 
 > **Requires Notebook Navigator.** NN Bridge does nothing on its own. Install and enable Notebook Navigator first.
 
+![NN Bridge customizing the Notebook Navigator pane with custom sections, command shortcuts, and a calendar embed](assets/screenshot.png)
+
 ## Features
 
 ### Visual hide toggles
