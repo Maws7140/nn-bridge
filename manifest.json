@@ -1,0 +1,10 @@
+{
+  "id": "nn-bridge",
+  "name": "NN Bridge",
+  "version": "1.0.0",
+  "minAppVersion": "1.7.7",
+  "description": "Visual tweaks and toggle options for the Notebook Navigator plugin. Hide shortcut labels, section headers, vault title, note counts, and more.",
+  "author": "Maws",
+  "authorUrl": "https://github.com/Maws7140",
+  "isDesktopOnly": false
+}

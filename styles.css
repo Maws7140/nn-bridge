@@ -1,0 +1,250 @@
+/* ========================================================================
+   NN Bridge – Visual tweaks for Notebook Navigator
+   Each rule is gated by a body class toggled from the settings tab.
+   ======================================================================== */
+
+/* ── Hide shortcut item labels ──────────────────────────────────────────
+   Hides the text label on each shortcut item while keeping icons visible,
+   creating a compact icon-only shortcut bar.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-shortcut-labels .nn-shortcut-item .nn-shortcut-label {
+    display: none;
+}
+
+/* Also hide the description text next to labels */
+.nn-bridge-hide-shortcut-labels .nn-shortcut-item .nn-shortcut-description {
+    display: none;
+}
+
+/* ── Hide shortcuts section header ──────────────────────────────────────
+   Hides the "Shortcuts" header row above the pinned shortcuts list.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-shortcuts-header .nn-shortcut-header-item:not(.nn-bridge-section-header) {
+    display: none;
+}
+
+/* ── Hide entire shortcuts section ──────────────────────────────────────
+   Hides the full pinned shortcuts container (header + items + banner).
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-shortcuts .nn-shortcut-pinned {
+    display: none;
+}
+
+/* ── Hide vault title ───────────────────────────────────────────────────
+   Hides the vault title area displayed below the navigation header.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-vault-title .nn-vault-title-area {
+    display: none;
+}
+
+/* ── Hide note counts ───────────────────────────────────────────────────
+   Hides the file/note count badges on folders and tags in the nav tree.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-note-counts .nn-navitem-count {
+    display: none;
+}
+
+/* ── Hide navigation banner ─────────────────────────────────────────────
+   Hides the navigation banner image at the top of the nav pane.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-nav-banner .nn-nav-banner {
+    display: none;
+}
+
+/* ── Hide section icons ─────────────────────────────────────────────────
+   Hides the icons next to navigation section headers (Shortcuts, Recent,
+   Folders, Tags, Properties).
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-section-icons .nn-shortcut-header-item .nn-navitem-icon,
+.nn-bridge-hide-section-icons .nn-properties-header-item .nn-navitem-icon {
+    display: none;
+}
+
+/* ── Hide navigation separator lines ────────────────────────────────────
+   Hides the thin horizontal separator lines between navigation sections.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-nav-separators .nn-shortcut-pinned {
+    border-bottom: none;
+}
+
+.nn-bridge-hide-nav-separators .nn-shortcut-pinned::after {
+    display: none;
+}
+
+/* ── Hide chevron arrows ────────────────────────────────────────────────
+   Hides the expand/collapse arrow icons by default, but reveals them
+   when hovering a row so folders can still be collapsed/expanded easily.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-hide-chevrons .nn-navitem-chevron {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+/* Reveal chevrons when hovering the row */
+.nn-bridge-hide-chevrons .nn-navitem:hover .nn-navitem-chevron {
+    opacity: 1;
+}
+
+/* ── Custom chevron size ────────────────────────────────────────────────
+   When --nn-bridge-chevron-size is set on .notebook-navigator by our JS,
+   override the chevron element dimensions. The SVG inside scales via the
+   existing flex layout.
+   ──────────────────────────────────────────────────────────────────────── */
+.notebook-navigator .nn-navitem-chevron {
+    width: var(--nn-bridge-chevron-size, var(--nn-nav-icon-size));
+    height: var(--nn-bridge-chevron-size, var(--nn-nav-icon-size));
+}
+
+/* Scale the SVG inside the chevron to match the custom size */
+.notebook-navigator .nn-navitem-chevron svg {
+    width: var(--nn-bridge-chevron-size, var(--nn-nav-icon-size));
+    height: var(--nn-bridge-chevron-size, var(--nn-nav-icon-size));
+}
+
+/* ── Sidebar markdown embed ─────────────────────────────────────────────
+   Rendered markdown section injected by NN Bridge into Notebook Navigator.
+   Supports pasted Buttons plugin blocks from homepage/dashboard notes.
+   ──────────────────────────────────────────────────────────────────────── */
+.notebook-navigator .nn-bridge-sidebar-embed {
+    flex: 0 0 auto;
+    position: relative;
+    margin: var(--nn-bridge-sidebar-embed-top-spacing, 8px) 10px 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--nn-theme-divider-border-color, var(--background-modifier-border));
+}
+
+.notebook-navigator .nn-bridge-sidebar-embed[data-position="top"] {
+    margin-top: 10px;
+}
+
+/* Keep sidebar embed separator behavior aligned with "Hide navigation separators". */
+.nn-bridge-hide-nav-separators .notebook-navigator .nn-bridge-sidebar-embed {
+    border-top: none;
+    padding-top: 0;
+}
+
+.notebook-navigator .nn-bridge-sidebar-embed-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.notebook-navigator .nn-bridge-sidebar-embed-content > *:first-child {
+    margin-top: 0;
+}
+
+.notebook-navigator .nn-bridge-sidebar-embed-content > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Make Buttons plugin buttons fit nicely in the narrow sidebar. */
+.notebook-navigator .nn-bridge-sidebar-embed-content button,
+.notebook-navigator .nn-bridge-sidebar-embed-content .button-default,
+.notebook-navigator .nn-bridge-sidebar-embed-content .buttons-button,
+.notebook-navigator .nn-bridge-sidebar-embed-content .make-it-wider {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ── Notion-like Sidebar Tabs ───────────────────────────────────────────
+   Flattens the left sidebar tab header to remove "folder tabs" and make
+   it look like a sleek action row, typical of Notion.
+   ──────────────────────────────────────────────────────────────────────── */
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-container {
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    padding: 8px 12px 0 12px;
+}
+
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-container-inner {
+    gap: 4px;
+}
+
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: var(--radius-s);
+    min-height: 28px;
+    height: 28px;
+}
+
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header:hover {
+    background: var(--background-modifier-hover) !important;
+}
+
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header.is-active {
+    background: var(--background-modifier-active-hover) !important;
+}
+
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-tab-list {
+    display: none !important; /* Hide the dropdown chevron */
+}
+
+/* Custom injected commands styling */
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .nn-bridge-sidebar-command {
+    background: transparent;
+    border-radius: var(--radius-s);
+    color: var(--text-muted);
+}
+
+.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .nn-bridge-sidebar-command:hover {
+    color: var(--text-normal);
+}
+
+/* ── Custom Sections ─────────────────────────────────────────────────── */
+
+/* Container wrapping all custom sections */
+.nn-bridge-custom-sections-container {
+    flex: 0 0 auto;
+    border-bottom: 1px solid var(--nn-theme-divider-border-color, var(--background-modifier-border));
+    padding: 0 var(--nn-scroller-padding, 8px) 8px;
+    overflow: hidden;
+}
+
+/* Align spacing with "Hide navigation separators" settings */
+.nn-bridge-hide-nav-separators .nn-bridge-custom-sections-container {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Custom section headers styling */
+.notebook-navigator .nn-bridge-section-header {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.notebook-navigator .nn-bridge-section-header:hover {
+    background-color: var(--nn-theme-navitem-hover-bg, var(--background-modifier-hover));
+}
+
+/* Custom section items indentation and hover styling */
+.notebook-navigator .nn-bridge-custom-item {
+    cursor: pointer;
+}
+
+.notebook-navigator .nn-bridge-custom-item:hover {
+    background-color: var(--nn-theme-navitem-hover-bg, var(--background-modifier-hover));
+}
+
+/* Chevron transitions for collapse toggle */
+.notebook-navigator .nn-bridge-collapse-chevron svg {
+    transition: transform 0.15s ease;
+}
+
+.notebook-navigator .nn-bridge-collapse-chevron.is-collapsed svg {
+    transform: rotate(-90deg);
+}
+
+/* Strikethrough style for missing items (deleted notes or missing commands) */
+.notebook-navigator .nn-shortcut-item--missing {
+    opacity: 0.6;
+}
+
+.notebook-navigator .nn-shortcut-item--missing .nn-shortcut-label {
+    text-decoration: line-through;
+}
