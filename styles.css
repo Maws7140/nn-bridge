@@ -153,36 +153,36 @@
    Flattens the left sidebar tab header to remove "folder tabs" and make
    it look like a sleek action row, typical of Notion.
    ──────────────────────────────────────────────────────────────────────── */
-.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-container {
-    background: transparent !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
+body.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-container {
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
     padding: 8px 12px 0 12px;
 }
 
-.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-container-inner {
+body.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-container-inner {
     gap: 4px;
 }
 
-.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+body.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header {
+    background: transparent;
+    border: none;
+    box-shadow: none;
     border-radius: var(--radius-s);
     min-height: 28px;
     height: 28px;
 }
 
-.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header:hover {
-    background: var(--background-modifier-hover) !important;
+body.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header:hover {
+    background: var(--background-modifier-hover);
 }
 
-.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header.is-active {
-    background: var(--background-modifier-active-hover) !important;
+body.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header.is-active {
+    background: var(--background-modifier-active-hover);
 }
 
-.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-tab-list {
-    display: none !important; /* Hide the dropdown chevron */
+body.nn-bridge-sidebar-tabs-style .workspace-split.mod-left-split .workspace-tab-header-tab-list {
+    display: none; /* Hide the dropdown chevron */
 }
 
 /* Custom injected commands styling */
